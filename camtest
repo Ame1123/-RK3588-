@@ -1,0 +1,120 @@
+sudo add-apt-repository universe
+sudo add-apt-repository multiverse
+sudo apt-get update
+sudo apt-get install gstreamer1.0-tools gstreamer1.0-alsa gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav
+sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-good1.0-dev libgstreamer-plugins-bad1.0-dev
+
+sudo git clone https://kkgithub.com/opencv/opencv.git
+cd opencv
+sudo mkdir build
+cd build
+
+
+sudo apt install gparted
+
+sudo find / -name libpython3.8.so
+
+sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
+      -D CMAKE_INSTALL_PREFIX=/usr/local \
+      -D INSTALL_PYTHON_EXAMPLES=ON \
+      -D INSTALL_C_EXAMPLES=OFF \
+      -D WITH_TBB=ON \
+      -D WITH_V4L=ON \
+      -D BUILD_TESTS=OFF \
+      -D BUILD_PERF_TESTS=OFF \
+      -D WITH_QT=ON \
+      -D WITH_OPENGL=ON \
+      -D WITH_GSTEAMER=ON \
+      -D BUILD_opencv_python3=ON \
+      -D BUILD_opencv_python2=OFF \
+      -D PYTHON3_LIBRARY=/home/jetson/miniconda3/envs/tieluchubing/lib/libpython3.9.so \
+      -D PYTHON_DEFAULT_EXECUTABLE=$(python -c "import sys; print(sys.executable)")   \
+      -D PYTHON3_EXECUTABLE=$(python -c "import sys; print(sys.executable)")   \
+      -D PYTHON3_NUMPY_INCLUDE_DIRS=$(python -c "import numpy; print (numpy.get_include())") \
+      -D PYTHON3_PACKAGES_PATH=$(python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())") ..
+
+
+sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D OPENCV_GENERATE_PKGCONFIG=ON \
+-D BUILD_EXAMPLES=OFF \
+-D INSTALL_PYTHON_EXAMPLES=OFF \
+-D INSTALL_C_EXAMPLES=OFF \
+-D PYTHON_EXECUTABLE=$(which python2) \
+-D BUILD_opencv_python2=OFF \
+-D PYTHON3_EXECUTABLE=/home/tin/miniforge3/envs/reid/bin/python3.6m \
+-D WITH_GSTREAMER=ON \
+-D PYTHON3_INCLUDE_DIR=/home/tin/miniforge3/envs/reid/include/python3.6m \
+-D PYTHON3_PACKAGES_PATH=/home/tin/miniforge3/envs/reid/lib/python3.6/site-packages \
+-D PYTHON3_LIBRARY=/home/tin/miniforge3/envs/reid/lib/libpython3.6m.so\
+-D PYTHON3_NUMPY_INCLUDE_DIRS=/home/tin/miniforge3/envs/reid/lib/python3.6/site-packages/numpy/core/include \
+-D PYTHON_DEFAULT_EXECUTABLE=/home/tin/miniforge3/envs/reid/bin/python3.6m ..
+
+
+sudo cmake \
+-D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D INSTALL_C_EXAMPLES=OFF \
+-D INSTALL_TESTS=OFF \
+-D WITH_FFMPEG=ON \
+-D WITH_GSTREAMER=ON \
+-D WITH_V4L=ON \
+-D WITH_OPENEXR=OFF \
+-D CUDA_ARCH_BIN=5.3 \
+-D CUDA_ARCH_PTX="" \
+-D CMAKE_CXX_FLAGS="-W -Wall -Werror=return-type" \
+-D BUILD_PNG=ON \
+-D BUILD_TIFF=ON \
+-D BUILD_TBB=OFF \
+-D BUILD_JPEG=ON \
+-D BUILD_JASPER=OFF \
+-D BUILD_ZLIB=OFF \
+-D BUILD_EXAMPLES=OFF \
+-D BUILD_opencv_java=OFF \
+-D BUILD_opencv_python2=OFF \
+-D BUILD_opencv_python3=ON \
+-D ENABLE_PRECOMPILED_HEADERS=OFF \
+-D WITH_OPENCL=OFF \
+-D WITH_OPENMP=OFF \
+-D WITH_GSTEAMER=ON \
+-D WITH_CUDA=ON \
+-D WITH_GTK=ON \
+-D WITH_VTK=OFF \
+-D WITH_1394=OFF \
+-D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2 \
+-D OPENCV_ENABLE_NONFREE=ON \
+-D OPENCV_EXTRA_MODULES_PATH=/home/jetson/Desktop/opencv4.4/opencv_contrib-4.4.0/modules \
+-D PYTHON3_EXECUTABLE=/home/jetson/miniconda3/envs/tielu/bin/python \
+-D PYTHON3_INCLUDE_DIR=/home/jetson/miniconda3/envs/tielu/include/python3.8 \
+-D PYTHON_DEFAULT_EXECUTABLE=$(which python3) \
+-D PYTHON3_LIBRARY=/home/jetson/miniconda3/envs/tielu/lib/libpython3.8.so \
+..
+
+pip install ultralytics==8.2.59 -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+cp /usr/local/lib/python3.8/site-packages/cv2/python-3.8/cv2.cpython-38-aarch64-linux-gnu.so /home/yahboom/miniconda3/envs/tieluchubing/lib/python3.8/site-packages/
+
+gst-launch-1.0 nvarguscamerasrc ! 'video/x-raw(memory:NVMM), width=(int)1920, height=(int)1080, format=(string)NV12, framerate=(fraction)30/1' ! nvvidconv ! 'video/x-raw, width=(int)640, height=(int)480' ! nvvidconv ! nvegltransform ! nveglglessink -e
+
+python -m pip install tensorrt-*.whl
+
+sudo apt-get update
+sudo apt-get install libomp-dev
+
+sudo apt-get install libomp5
+
+iXpr00jzcXx0f2dv0HfEPd7XkNISTAd25MTfXR2 412029
+
+bu37TYmrscg6wHQLNJQxfIJDOhmPRq1G6y4ymwNqJlAFPmoM0XojRmjAWbHQxf0E
+
+gc0RHwOlefnLSamhj1HRWd0rybXJTw25XQklvXV98yE=
+
+ls /lib/aarch64-linux-gnu/libtinfo.so.*
+
+sudo ln -s /lib/aarch64-linux-gnu/libtinfo.so.6 /lib/aarch64-linux-gnu/libtinfo.so.5
+
+
+sudo cp kernel_tegra210-p3448-0002-p3449-0000-b00-user-custom-JP461.dtb /boot/kernel_tegra210-p3448-0002-p3449-0000-b00-user-custom.dtb
+
+sudo cp /home/jetson/miniconda3/envs/tieluchubing/lib/python3.8/site-packages/Jetson/GPIO/99-gpio.rules  /etc/udev/rules.d/

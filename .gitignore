@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+.idea/
+.vscode/
+.DS_Store
+
+说明
+
+*.log
+result/
+
