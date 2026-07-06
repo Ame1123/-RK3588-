@@ -15,3 +15,19 @@ __pycache__/
 *.log
 result/
 
+# Embedded build outputs
+Obj/
+Debug/
+Release/
+build/
+*.o
+*.d
+*.crf
+*.lst
+*.map
+*.axf
+*.elf
+*.hex
+*.bin
+*.uvguix.*
+*.log.lock

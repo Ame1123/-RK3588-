@@ -7,6 +7,7 @@
 ## 主体任务代码
 
 - 主程序入口：`x4.py`
+- STM32 执行端工程：`firmware/stm32/`
 - RKNN 推理封装：`rk_runtime/rknn_pool.py`
 - YOLOv8 后处理：`rk_runtime/yolov8_postprocess.py`
 - 模型转换工具：`rk_convert/`
@@ -20,6 +21,7 @@
 - RK3588 NPU 加速运行 RKNN 模型
 - YOLOv8 目标检测与结冰/无冰识别
 - 串口发送 JSON 指令控制 STM32、舵机和继电器
+- STM32 端解析串口 JSON 指令并执行舵机、继电器、屏幕显示等控制
 - MQTT 上报检测结果并接收云端下发指令
 - RTP 视频流上传
 
@@ -31,6 +33,7 @@
 ├── models/                  # 模型文件，包含 best.rknn
 ├── rk_runtime/              # RKNN 推理池与 YOLO 后处理代码
 ├── rk_convert/              # ONNX/RKNN 模型转换脚本
+├── firmware/stm32/          # STM32F103ZE 执行端 Keil 工程
 ├── static/                  # Web 静态资源
 ├── templates/               # Web 页面模板
 ├── test/                    # 硬件测试脚本
@@ -44,6 +47,7 @@
 - 外设：摄像头、STM32、舵机、继电器
 - Python 依赖：OpenCV、NumPy、PySerial、Paho MQTT、RKNN Lite Runtime
 - 模型：`models/best.rknn`
+- STM32 工程：Keil uVision，工程文件位于 `firmware/stm32/Template.uvprojx`
 
 ## 运行方式
 
@@ -87,7 +91,7 @@ sudo cutecom
 
 ## STM32 控制指令示例
 
-通过串口发送 JSON 格式数据控制舵机角度或模式：
+RK3588 主程序通过串口向 STM32 发送 JSON 格式数据，STM32 工程位于 `firmware/stm32/`。通过串口发送 JSON 格式数据控制舵机角度或模式：
 
 ```json
 {"servo1": 90, "servo2": 0, "servo3": 0, "servo4": 0}
@@ -114,6 +118,8 @@ sudo cutecom
 {"switch": 1}
 ```
 
+更多 STM32 工程说明见 `firmware/stm32/README.md`。
+
 ## 比赛资料
 
 - 设计文件：可放入 `docs/design/`
@@ -123,4 +129,3 @@ sudo cutecom
 ## 开源协议
 
 本项目采用 MIT License 开源，详见 `LICENSE`。
-
