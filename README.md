@@ -4,6 +4,8 @@
 
 仓库地址：https://github.com/Ame1123/-RK3588-
 
+演示视频：https://github.com/Ame1123/-RK3588-/releases/tag/video-2026-07-08
+
 ## 主体任务代码
 
 - 主程序入口：`x4.py`
@@ -37,7 +39,7 @@
 ├── static/                  # Web 静态资源
 ├── templates/               # Web 页面模板
 ├── test/                    # 硬件测试脚本
-├── docs/                    # 比赛资料、设计文件、演示视频说明
+├── docs/                    # 设计文件与项目资料
 └── README.md
 ```
 
@@ -119,12 +121,6 @@ RK3588 主程序通过串口向 STM32 发送 JSON 格式数据，STM32 工程位
 ```
 
 更多 STM32 工程说明见 `firmware/stm32/README.md`。
-
-## 比赛资料
-
-- 设计文件：可放入 `docs/design/`
-- 演示视频：可放入 `docs/demo/`，如果视频文件较大，建议在该目录的说明文件中填写网盘或公开视频链接
-- 项目代码：已在本仓库开源
 
 ## 开源协议
 
